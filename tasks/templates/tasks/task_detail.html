@@ -1,0 +1,36 @@
+{% extends 'tasks/task_list.html' %}
+
+{% block title %}Task todo app{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto mt-10 p-5 bg-white rounded shadow">
+        <h1 class="text-xl font-bold mb-2">Task Detail</h1>
+        <p class="mb-4"><strong>Title:</strong> {{ task.title }}</p>
+        <p class="mb-4"><strong>Description:</strong> {{ task.description }}</p>
+        <p class="mb-4"><strong>Completed:</strong> 
+            <span class="{% if task.completed %}text-green-500{% else %}text-red-500{% endif %}">
+                {% if task.completed %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+            </span>
+        </p>
+        
+        <form action="{% url 'tasks:delete_task' task.pk %}" method="post" class="inline">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="return confirm('Are you sure?');">
+                Delete Task
+            </button>
+        </form>
+        
+        <a href="{% url 'tasks:task_update' task.id %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2">
+            Update Task
+        </a>
+
+        <a href="{% url 'tasks:task_list' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2">
+            Back to Task List
+        </a>
+    </div>
+
+{% endblock %}
