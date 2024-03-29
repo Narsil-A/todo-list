@@ -19,37 +19,49 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Python 3.8 or higher
 - pip
-- Virtualenv (optional but recommended)
+- Virtualenv (optional)
 
+### Installation
 
-1. Set up a Python virtual environment (Optional)
+Follow these steps to get your development environment set up:
 
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On Unix or MacOS
-source venv/bin/activate
+1. **Set up a Python virtual environment (Optional)**
 
-2. Install the required packages
+    ```bash
+    python -m venv venv
+    # On Windows
+    venv\Scripts\activate
+    # On Unix or MacOS
+    source venv/bin/activate
+    ```
 
-pip install -r requirements.txt
+2. **Install the required packages**
 
-3. Run migrations to create the database schema
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-python manage.py makemigrations
-python manage.py migrate
+3. **Run migrations to create the database schema**
 
-4. Start the development server
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
 
-python manage.py runserver
+4. **Start the development server**
 
+    ```bash
+    python manage.py runserver
+    ```
 
-API Endpoints DRF
+Now, visit `http://localhost:8000` in your web browser to view the application.
+
+## API Endpoints (Django Rest Framework)
 
 The application provides the following RESTful API endpoints:
 
-GET tasks/api/tasks/ - Retrieve a list of all tasks.
-POST tasks/api/tasks/ - Create a new task.
-GET tasks/api/tasks/<id>/ - Retrieve details of a specific task.
-PUT tasks/api/tasks/<id>/ - Update a specific task.
-DELETE tasks/api/tasks/<id>/ - Delete a specific task.
+- `GET tasks/api/tasks/` - Retrieve a list of all tasks.
+- `POST tasks/api/tasks/` - Create a new task.
+- `GET tasks/api/tasks/<id>/` - Retrieve details of a specific task.
+- `PUT tasks/api/tasks/<id>/` - Update a specific task.
+- `DELETE tasks/api/tasks/<id>/` - Delete a specific task.
